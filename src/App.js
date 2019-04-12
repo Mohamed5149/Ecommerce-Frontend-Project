@@ -1,26 +1,32 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Navbar from '../src/components/navbar/navbar';
+import RegForm from '../src/containers/regForm/regform'
+import LoginForm from '../src/containers/loginForm/loginForm';
+import ProductList from './containers/productList/productlist';
+import AddProduct from '../src/containers/addProduct/addProduct';
+import logout from './containers/logout/logout'
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <>
+        <BrowserRouter>
+          <div className="App">
+            <Navbar></Navbar>
+            <Switch>
+              <Route path="/registeration" exact component={RegForm}></Route>
+              <Route path="/login" exact component={LoginForm}></Route>
+              <Route path="/products" exact component={ProductList}></Route>
+              <Route path="/addproducts" exact component={AddProduct}></Route>
+              <Route path="/productsperuser" exact component={ProductList}></Route>
+              <Route path="/editproducts/:proID" exact component={AddProduct}></Route>
+              <Route path="/logout" exact component={logout}></Route>
+            </Switch>
+          </div>
+        </BrowserRouter>
+      </>
     );
   }
 }

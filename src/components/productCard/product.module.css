@@ -1,0 +1,21 @@
+.product
+{
+    padding: 2rem;
+    border: 1px solid darkcyan;
+    box-shadow:2px 2px 3px rgba(0,0,0,0.5);
+    width: 40%;
+    margin: 0.3rem auto;
+    
+}
+.h3Class{
+    color: darkslategray;
+    
+}
+.btn3{
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    background-color: darkcyan;
+    color: white;
+}
