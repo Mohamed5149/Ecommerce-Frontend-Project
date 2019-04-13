@@ -2,6 +2,7 @@ import Axios from 'axios';
 const baseURL = process.env.REACT_APP_URL || 'http://localhost:3000'
 
 export const SETPRODUCTS = 'SETPRODUCTS';
+export const SETPRODUCTSPERUSER = 'SETPRODUCTSPERUSER';
 
 export const addUser = (value) => {
     return Axios.post(`${baseURL}/users/`, value);
@@ -33,11 +34,11 @@ export const getProductsPerUser = () => {
                 Authorization: localStorage.getItem('token')
             }
         }).then(res => {
-            dispatch({
-                type: SETPRODUCTS,
-                products: res.data
-            })
-        });
+                dispatch({
+                    type: SETPRODUCTSPERUSER,
+                    products: res.data
+                })
+            });
     }
 }
 

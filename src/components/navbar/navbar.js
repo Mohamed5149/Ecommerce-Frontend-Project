@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import classes from './navbar.module.css';
 
-const navbar = (props) => {
+const navbar = () => {
     return (
         <>
             <div className={classes.Nav}>

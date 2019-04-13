@@ -34,23 +34,44 @@ class ProductList extends Component {
     }
     render() {
         let cards;
-        cards = this.props.products.map((product) => {
-            return (
-                <div key={product._id}>
-                    <ProductCard
-                        url={this.props.match.url}
-                        name={product.name}
-                        description={product.description}
-                        price={product.price}
-                        discount={product.discount}
-                        category={product.category}
-                        deleteproduct={() => this.props.delete(product._id)}
-                        editproduct={() => this.editProducthandler(product._id)}
-                    >
-                    </ProductCard>
-                </div>
-            )
-        })
+        if (this.props.match.url.includes("user")) {
+            cards = this.props.userproducts.map((product) => {
+                return (
+                    <div key={product._id}>
+                        <ProductCard
+                            url={this.props.match.url}
+                            name={product.name}
+                            description={product.description}
+                            price={product.price}
+                            discount={product.discount}
+                            category={product.category}
+                            deleteproduct={() => this.props.delete(product._id)}
+                            editproduct={() => this.editProducthandler(product._id)}
+                        >
+                        </ProductCard>
+                    </div>
+                )
+            })
+        }
+        else {
+            cards = this.props.products.map((product) => {
+                return (
+                    <div key={product._id}>
+                        <ProductCard
+                            url={this.props.match.url}
+                            name={product.name}
+                            description={product.description}
+                            price={product.price}
+                            discount={product.discount}
+                            category={product.category}
+                            deleteproduct={() => this.props.delete(product._id)}
+                            editproduct={() => this.editProducthandler(product._id)}
+                        >
+                        </ProductCard>
+                    </div>
+                )
+            })
+        }
         return (
             <section>
                 {cards}
@@ -61,7 +82,8 @@ class ProductList extends Component {
 
 const mapStateToProps = state => {
     return {
-        products: state.products
+        products: state.products,
+        userproducts: state.userproducts
     };
 };
 

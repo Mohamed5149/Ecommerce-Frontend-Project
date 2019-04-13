@@ -1,7 +1,8 @@
 import * as actionTypes from '../actions/actions';
 
 const initalState = {
-    products: []
+    products: [],
+    userproducts:[]
 }
 
 const reducer = (state = initalState, action) => {
@@ -10,6 +11,12 @@ const reducer = (state = initalState, action) => {
             return {
                 ...state,
                 products: action.products
+            }
+
+            case actionTypes.SETPRODUCTSPERUSER:
+            return {
+                ...state,
+                userproducts:action.products
             }
         default:
             return state;
