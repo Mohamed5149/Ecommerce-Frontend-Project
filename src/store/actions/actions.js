@@ -14,7 +14,7 @@ export const login = (value) => {
 
 export const getAllProduct = () => {
     return dispatch => {
-        Axios.get(`${baseURL}/products`, {
+        return Axios.get(`${baseURL}/products`, {
             headers: {
                 Authorization: localStorage.getItem('token')
             }
@@ -29,7 +29,7 @@ export const getAllProduct = () => {
 
 export const getProductsPerUser = () => {
     return dispatch => {
-        Axios.get(`${baseURL}/products/${localStorage.getItem('userid')}`, {
+        return Axios.get(`${baseURL}/products/${localStorage.getItem('userid')}`, {
             headers: {
                 Authorization: localStorage.getItem('token')
             }
