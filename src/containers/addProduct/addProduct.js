@@ -44,8 +44,8 @@ class AddProduct extends Component {
         this.getUserId();
     }
     render() {
-        return (
-            <>
+            return (
+                <>
                 <div className={classes.add}>
                     <input className={classes.input3} onChange={(event) => { this.setState({ name: event.target.value }) }} value={this.state.name} placeholder="Product Name"></input>
                     <br></br>
@@ -67,6 +67,8 @@ class AddProduct extends Component {
                 </div>
             </>
         )
+    
+        
     }
 }
 

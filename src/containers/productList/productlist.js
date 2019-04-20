@@ -10,7 +10,11 @@ class ProductList extends Component {
         loading: true
     }
     componentDidMount() {
-        if (!this.state.url || this.state.url !== this.props.match.url) {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            this.props.history.push('./login');
+        }
+        else if (!this.state.url || this.state.url !== this.props.match.url) {
             if (this.props.match.url.includes("user")) {
                 this.props.getPerUser().then(res => {
                     this.setState({ loading: false })
@@ -25,7 +29,11 @@ class ProductList extends Component {
         }
     }
     componentDidUpdate() {
-        if (!this.state.url || this.state.url !== this.props.match.url) {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            this.props.history.push('./login');
+        }
+        else if (!this.state.url || this.state.url !== this.props.match.url) {
             if (this.props.match.url.includes("user")) {
                 this.props.getPerUser().then(res => {
                     this.setState({ loading: false })
@@ -44,7 +52,7 @@ class ProductList extends Component {
     }
     render() {
         let cards;
-        if (this.state.loading === true) {
+         if (this.state.loading === true) {
             cards = <Spinner></Spinner>
         }
         else {
